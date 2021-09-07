@@ -131,6 +131,8 @@ func (r *ReconcileOpenLibertyTrace) Reconcile(request reconcile.Request) (reconc
 		return reconcile.Result{}, err
 	}
 
+	instance.Initialize()
+
 	//Pod is expected to be from the same namespace as the CR instance
 	podNamespace := instance.Namespace
 	podName := instance.Spec.PodName
